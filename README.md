@@ -1,18 +1,7 @@
-# Chitchan - A Social Media Platform 🚀
+# Reddit Clone - A Social Media Platform 🚀
 
-Chitchan is a modern social media platform built with Next.js, Firebase, and Chakra UI. It's a full-stack social media platform where users can create communities, share posts, and interact with others.
+This Reddit Clone is a modern social media platform built with Next.js, Firebase, and Chakra UI. It's a full-stack social media platform where users can create communities, share posts, and interact with others.
 
-## 🌟 Features
-
-- 🔐 User Authentication (Sign Up, Login, Logout)
-- 🏘️ Create and Join Communities
-- 📝 Create and Share Posts
-- 💬 Comment on Posts
-- ⬆️ Upvote/Downvote Posts and Comments
-- 🎨 Modern UI with Chakra UI
-- 📱 Responsive Design
-- ⚡ Fast Performance with Next.js
-- 🔥 Real-time Updates with Firebase
 
 ## 🛠️ Tech Stack
 
@@ -38,17 +27,20 @@ Chitchan is a modern social media platform built with Next.js, Firebase, and Cha
 
 ### Installation
 
-1. **Clone the repository**
+1. **Download or clone the project**
    ```bash
-   git clone https://github.com/DivyanshVerma0/chitchan.git
-   cd chitchan
+   # If cloning from repository
+   git clone <repository-url>
+   cd reddit-clone
    ```
 
 2. **Install dependencies**
    ```bash
-   npm install
-   # or
-   yarn install
+   # Using yarn (recommended)
+   yarn
+   
+   # Or using npm with legacy peer deps
+   npm install --legacy-peer-deps
    ```
 
 3. **Set up Firebase**
@@ -57,8 +49,8 @@ Chitchan is a modern social media platform built with Next.js, Firebase, and Cha
    - Create a Firestore Database
    - Get your Firebase configuration
 
-4. **Create .env file**
-   Create a `.env` file in the root directory with your Firebase config:
+4. **Create .env.local file**
+   Create a `.env.local` file in the root directory with your Firebase config:
    ```
    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
@@ -70,13 +62,15 @@ Chitchan is a modern social media platform built with Next.js, Firebase, and Cha
 
 5. **Run the development server**
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   # Using yarn
+   yarn dev -p 3002
+   
+   # Or using npm
+   npm run dev -- -p 3002
    ```
 
 6. **Open your browser**
-   Visit [http://localhost:3000](http://localhost:3000)
+   Visit [http://localhost:3002](http://localhost:3002)
 
 ## 📱 How to Use
 
@@ -154,11 +148,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Next.js](https://nextjs.org/)
 - [Firebase](https://firebase.google.com/)
 - [Chakra UI](https://chakra-ui.com/)
-- [Chitchan](https://github.com/DivyanshVerma0/Chitchan) for inspiration
+- [Reddit](https://www.reddit.com/) for inspiration
 
-## 📞 Support...
+## 📞 Support
 
-For support, email divyansh_verma@icloud.com.
+For support, please open an issue in the repository.
 
 ## 🎯 Future Improvements
 
@@ -173,7 +167,6 @@ For support, email divyansh_verma@icloud.com.
 
 ---
 
-
-made with love by a^4+d
+A Reddit clone application built with modern web technologies.
 
 
