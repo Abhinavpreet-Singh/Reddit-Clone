@@ -75,14 +75,22 @@ const SignUp: React.FC = () => {
             {FIREBASE_ERRORS[error?.message as keyof typeof FIREBASE_ERRORS]}
           </FormErrorMessage>
         )}
-      </FormControl>
-      <Button
+      </FormControl>      <Button
         width="100%"
-        height="36px"
+        height="40px"
         mb={2}
         mt={2}
         type="submit"
         isLoading={loading}
+        bgGradient="linear(to-r, brand.500, #9747FF)"
+        color="white"
+        _hover={{
+          bgGradient: "linear(to-r, brand.600, #8A35FF)",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(44, 116, 179, 0.3)"
+        }}
+        transition="all 0.3s ease"
+        fontWeight="600"
       >
         Sign Up
       </Button>

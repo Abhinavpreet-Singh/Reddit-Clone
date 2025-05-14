@@ -117,27 +117,47 @@ const Home: NextPage = () => {
     }
     setLoading(false);
   };
-
   const getNoUserHomePosts = async () => {
-    console.log("GETTING NO USER FEED");
+    console.log("GETTING NO USER FEED - USING MOCK DATA");
     setLoading(true);
     try {
-      const postQuery = query(
-        collection(firestore, "posts"),
-        orderBy("voteStatus", "desc"),
-        limit(10)
-      );
-      const postDocs = await getDocs(postQuery);
-      const posts = postDocs.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      console.log("NO USER FEED", posts);
-
-      setPostStateValue((prev) => ({
-        ...prev,
-        posts: posts as Post[],
-      }));
+      // First try to get real data from Firebase
+      try {
+        const postQuery = query(
+          collection(firestore, "posts"),
+          orderBy("voteStatus", "desc"),
+          limit(10)
+        );
+        const postDocs = await getDocs(postQuery);
+        const posts = postDocs.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        
+        if (posts.length > 0) {
+          console.log("USING REAL POSTS FROM FIREBASE");
+          setPostStateValue((prev) => ({
+            ...prev,
+            posts: posts as Post[],
+          }));
+        } else {
+          // If no posts in Firebase, use mock data
+          console.log("NO POSTS IN FIREBASE - USING MOCK DATA");
+          const { mockPosts } = await import('../data/mockData');
+          setPostStateValue((prev) => ({
+            ...prev,
+            posts: mockPosts as Post[],
+          }));
+        }
+      } catch (error) {
+        // If Firebase query fails, use mock data
+        console.log("FIREBASE ERROR - USING MOCK DATA");
+        const { mockPosts } = await import('../data/mockData');
+        setPostStateValue((prev) => ({
+          ...prev,
+          posts: mockPosts as Post[],
+        }));
+      }
     } catch (error: any) {
       console.log("getNoUserHomePosts error", error.message);
     }
@@ -196,13 +216,12 @@ const Home: NextPage = () => {
       }));
     };
   }, [postStateValue.posts, user?.uid]);
-
   return (
     <>
       <SEO 
-        title="Chitchan - Home"
-        description="Discover and join communities, share ideas, and engage in meaningful discussions on Chitchan."
-        keywords={['home', 'communities', 'discussions', 'social platform']}
+        title="BluiX - Explore the Deep"
+        description="Discover and join vibrant communities, share ideas, and engage in meaningful discussions on BluiX's sleek, immersive platform."
+        keywords={['BluiX', 'communities', 'discussions', 'social platform', 'modern social']}
       />
       <PageContentLayout>
         {[

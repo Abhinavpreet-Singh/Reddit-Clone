@@ -9,15 +9,14 @@ interface SEOProps {
   keywords?: string[];
 }
 
-const SEO: React.FC<SEOProps> = ({
-  title = 'Chitchan - Your Community Platform',
-  description = 'Join Chitchan to connect with communities, share ideas, and engage in meaningful discussions.',
+const SEO: React.FC<SEOProps> = ({  title = 'BluiX - Dive Into Communities',
+  description = 'Join BluiX to connect with vibrant communities, share ideas, and engage in meaningful discussions in a sleek, immersive environment.',
   image = '/images/og-image.jpg',
   type = 'website',
   keywords = ['community', 'discussion', 'social', 'platform'],
 }) => {
   const router = useRouter();
-  const canonicalUrl = `https://chitchan.com${router.asPath}`;
+  const canonicalUrl = `https://bluix.com${router.asPath}`;
 
   return (
     <Head>
@@ -33,7 +32,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content="Chitchan" />
+      <meta property="og:site_name" content="BluiX" />
 
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +45,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="robots" content="index, follow" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
-      <meta name="author" content="Chitchan" />
+      <meta name="author" content="BluiX" />
     </Head>
   );
 };

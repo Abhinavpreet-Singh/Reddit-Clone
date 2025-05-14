@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
+  Text,
 } from "@chakra-ui/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -45,14 +46,27 @@ const AuthModal: React.FC<AuthModalProps> = () => {
   useEffect(() => {
     if (user) handleClose();
   }, [user]);
-
   return (
     <ModalWrapper isOpen={modalState.open} onClose={handleClose}>
-      <ModalHeader display="flex" flexDirection="column" alignItems="center">
-        {modalState.view === "login" && "Login"}
-        {modalState.view === "signup" && "Sign Up"}
-        {modalState.view === "resetPassword" && "Reset Password"}
-      </ModalHeader>
+      <Flex 
+        direction="column" 
+        align="center"
+        bgGradient="linear(to-r, brand.700, brand.500)"
+        color="white"
+        borderRadius="4px 4px 0 0"
+        p={4}
+        width="100%"
+      >
+        <Text 
+          fontSize="xl" 
+          fontWeight="bold"
+          textShadow="0 2px 4px rgba(0,0,0,0.2)"
+        >
+          {modalState.view === "login" && "Welcome Back to BluiX"}
+          {modalState.view === "signup" && "Join BluiX Community"}
+          {modalState.view === "resetPassword" && "Reset Your BluiX Password"}
+        </Text>
+      </Flex>
       <ModalCloseButton />
       <ModalBody
         display="flex"

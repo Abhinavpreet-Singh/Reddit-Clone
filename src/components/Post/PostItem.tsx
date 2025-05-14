@@ -24,7 +24,7 @@ import {
 import { Post } from "../../atoms/postsAtom";
 import Link from "next/link";
 import moment from "moment";
-import { ChitchanLogo } from "../../components/Icons/ChitchanLogo";
+import { BluixLogo } from "../../components/Icons/BluixLogo";
 
 type PostItemProps = {
   post: Post;
@@ -81,37 +81,55 @@ const PostItem: React.FC<PostItemProps> = ({
       setLoadingDelete(false);
       
     }
-  };
-
-  
-  return (
+  };    return (
     <Flex
       border="1px solid"
-      borderColor={colorMode === "dark" ? "dark.300" : "gray.300"}
-      bg={colorMode === "dark" ? "dark.card" : "white"}
-      borderRadius={singlePostPage ? "4px 4px 0px 0px" : 4}
+      borderColor={colorMode === "dark" ? "#144272" : "light.400"}
+      bg={colorMode === "dark" ? "#051937" : "white"}
+      borderRadius={singlePostPage ? "lg lg 0px 0px" : "lg"}
       cursor={singlePostPage ? "unset" : "pointer"}
-      _hover={{ borderColor: singlePostPage ? "none" : "gray.500" }}
+      boxShadow={colorMode === "dark" ? "0 4px 12px rgba(10, 38, 71, 0.5)" : "sm"}
+      _hover={{ 
+        boxShadow: singlePostPage ? "0 4px 12px rgba(10, 38, 71, 0.5)" : "0 8px 24px rgba(10, 38, 71, 0.6)", 
+        transform: singlePostPage ? "none" : "translateY(-3px)",
+        transition: "all 0.3s ease"
+      }}
       onClick={() => onSelectPost && post && onSelectPost(post)}
+      transition="all 0.3s ease"
+      overflow="hidden"
+      backdropFilter="blur(8px)"
     >
       <Flex
         direction="column"
         align="center"
-        bg={colorMode === "dark" ? "dark.card" : "gray.100"}
+        bg={colorMode === "dark" ? "#0C2D5B" : "#ECF2FF"}
         p={2}
         width="40px"
-        borderRadius={singlePostPage ? "0" : "3px 0px 0px 3px"}
-      >
-        <Icon
+        borderRadius={singlePostPage ? "0" : "lg 0px 0px lg"}
+      >        <Icon
           as={
             userVoteValue === 1 ? IoArrowUpCircleSharp : IoArrowUpCircleOutline
           }
-          color={userVoteValue === 1 ? "brand.100" : colorMode === "dark" ? "dark.200" : "gray.400"}
+          color={userVoteValue === 1 ? "#5DA3FA" : colorMode === "dark" ? "#2C74B3" : "gray.400"}
           fontSize={22}
           cursor="pointer"
-          onClick={(event) => onVote(event, post, 1, post.communityId)}
+          onClick={(event: any) => onVote(event, post, 1, post.communityId)}
+          transition="all 0.3s ease"
+          _hover={{ 
+            transform: "scale(1.3)", 
+            filter: "drop-shadow(0 0 4px #5DA3FA)", 
+            color: "#5DA3FA"
+          }}
+          sx={{
+            filter: userVoteValue === 1 ? "drop-shadow(0 0 4px #5DA3FA)" : "none",
+          }}
         />
-        <Text fontSize="9pt" fontWeight={600}>
+        <Text 
+          fontSize="10pt" 
+          fontWeight={800} 
+          my={1} 
+          color={colorMode === "dark" ? "#5DA3FA" : "#2C74B3"}
+        >
           {post.voteStatus}
         </Text>
         <Icon
@@ -120,10 +138,19 @@ const PostItem: React.FC<PostItemProps> = ({
               ? IoArrowDownCircleSharp
               : IoArrowDownCircleOutline
           }
-          color={userVoteValue === -1 ? "#4379FF" : colorMode === "dark" ? "dark.200" : "gray.400"}
+          color={userVoteValue === -1 ? "#D27AFF" : colorMode === "dark" ? "#2C74B3" : "gray.400"}
           fontSize={22}
           cursor="pointer"
-          onClick={(event) => onVote(event, post, -1, post.communityId)}
+          transition="all 0.3s ease"
+          _hover={{ 
+            transform: "scale(1.3)", 
+            filter: "drop-shadow(0 0 4px #D27AFF)",
+            color: "#D27AFF"
+          }}
+          sx={{
+            filter: userVoteValue === -1 ? "drop-shadow(0 0 4px #D27AFF)" : "none",
+          }}
+          onClick={(event: any) => onVote(event, post, -1, post.communityId)}
         />
       </Flex>
       <Flex direction="column" width="100%">
@@ -140,7 +167,7 @@ const PostItem: React.FC<PostItemProps> = ({
                       mr={2}
                     />
                   ) : (
-                    <Icon as={ChitchanLogo} fontSize={18} mr={1} color="brand.100" />
+                    <BluixLogo boxSize={4} mr={1} showText={false} />
                   )}
                   <Link href={`/c/${post.communityId}`}>
                     <Text

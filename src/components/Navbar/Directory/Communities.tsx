@@ -7,7 +7,7 @@ import { communityState } from "../../../atoms/communitiesAtom";
 import { auth } from "../../../firebase/clientApp";
 import CreateCommunityModal from "../../Modal/CreateCommunity";
 import MenuListItem from "./MenuListItem";
-import { ChitchanLogo } from "../../../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../../../components/Icons/IconAdapters";
 
 type CommunitiesProps = {
   menuOpen: boolean;
@@ -47,7 +47,7 @@ const Communities: React.FC<CommunitiesProps> = ({ menuOpen }) => {
                 key={snippet.communityId}
                 displayText={`c/${snippet.communityId}`}
                 link={`/c/${snippet.communityId}`}
-                icon={ChitchanLogo}
+                icon={BluixLogoIcon}
                 iconColor={colorMode === "dark" ? "dark.200" : "brand.100"}
               />
             ))}
@@ -83,7 +83,7 @@ const Communities: React.FC<CommunitiesProps> = ({ menuOpen }) => {
         {mySnippets.map((snippet) => (
           <MenuListItem
             key={snippet.communityId}
-            icon={ChitchanLogo}
+            icon={BluixLogoIcon}
             displayText={`c/${snippet.communityId}`}
             link={`/c/${snippet.communityId}`}
             iconColor={colorMode === "dark" ? "dark.200" : "brand.100"}

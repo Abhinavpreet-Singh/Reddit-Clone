@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { ChitchanLogo } from "../../../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../../../components/Icons/IconAdapters";
 import { CommunitySnippet } from "../../../atoms/communitiesAtom";
 import MenuListItem from "./MenuListItem";
 
@@ -18,9 +18,8 @@ const Moderating: React.FC<ModeratingProps> = ({ snippets }) => {
         <MenuListItem
           key={snippet.communityId}
           displayText={`c/${snippet.communityId}`}
-          link={`c/${snippet.communityId}`}
-          icon={ChitchanLogo}
-          iconColor="brand.100"
+          link={`c/${snippet.communityId}`}          icon={BluixLogoIcon}
+          iconColor="brand.500"
         />
       ))}
     </Box>

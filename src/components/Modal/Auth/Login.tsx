@@ -107,14 +107,22 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
       </InputGroup>
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
         {formError}
-      </Text>
-      <Button
+      </Text>      <Button
         width="100%"
-        height="36px"
+        height="40px"
         mb={2}
         mt={2}
         type="submit"
         isLoading={loading}
+        bgGradient="linear(to-r, brand.500, brand.400)"
+        color="white"
+        _hover={{
+          bgGradient: "linear(to-r, brand.600, brand.500)",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(44, 116, 179, 0.3)"
+        }}
+        transition="all 0.3s ease"
+        fontWeight="600"
       >
         Log In
       </Button>

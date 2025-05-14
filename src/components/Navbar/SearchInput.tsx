@@ -21,9 +21,8 @@ const SearchInput: React.FC<SearchInputProps> = ({ user }) => {
         <InputLeftElement
           pointerEvents="none"
           children={<SearchIcon color={colorMode === "dark" ? "dark.200" : "gray.400"} mb={1} />}
-        />
-        <Input
-          placeholder="Search Chitchan"
+        />        <Input
+          placeholder="Search BluiX"
           fontSize="10pt"
           _placeholder={{ color: colorMode === "dark" ? "dark.200" : "gray.500" }}
           _hover={{

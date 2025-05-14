@@ -5,7 +5,7 @@ import { BsDot } from "react-icons/bs";
 import { authModalState, ModalView } from "../../../atoms/authModalAtom";
 import { auth } from "../../../firebase/clientApp";
 import { useSetRecoilState } from "recoil";
-import { ChitchanLogo } from "../../../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../../../components/Icons/IconAdapters";
 
 type ResetPasswordProps = {
   toggleView: (view: ModalView) => void;
@@ -26,7 +26,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ toggleView }) => {
   };
   return (
     <Flex direction="column" alignItems="center" width="100%">
-      <Icon as={ChitchanLogo} color="brand.100" fontSize={40} mb={2} />
+      <Icon as={BluixLogoIcon} color="brand.500" fontSize={40} mb={2} />
       <Text fontWeight={700} mb={2}>
         Reset your password
       </Text>
@@ -63,24 +63,31 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ toggleView }) => {
             />
             <Text textAlign="center" fontSize="10pt" color="red">
               {error?.message}
-            </Text>
-            <Button
+            </Text>            <Button
               width="100%"
-              height="36px"
+              height="40px"
               mb={2}
               mt={2}
               type="submit"
               isLoading={sending}
+              bgGradient="linear(to-r, brand.500, brand.400)"
+              color="white"
+              _hover={{
+                bgGradient: "linear(to-r, brand.600, brand.500)",
+                transform: "translateY(-1px)",
+                boxShadow: "0 4px 12px rgba(44, 116, 179, 0.3)"
+              }}
+              transition="all 0.3s ease"
+              fontWeight="600"
             >
               Reset Password
             </Button>
           </form>
         </>
-      )}
-      <Flex
+      )}      <Flex
         alignItems="center"
         fontSize="9pt"
-        color="blue.500"
+        color="brand.500"
         fontWeight={700}
         cursor="pointer"
       >

@@ -1,6 +1,6 @@
-# Reddit Clone - A Social Media Platform 🚀
+# BluiX - A Futuristic Social Media Platform 🚀
 
-This Reddit Clone is a modern social media platform built with Next.js, Firebase, and Chakra UI. It's a full-stack social media platform where users can create communities, share posts, and interact with others.
+BluiX is a modern social media platform built with Next.js, Firebase, and Chakra UI. Featuring a unique dark navy theme with electric blue and purple accents, BluiX provides an immersive experience where users can create communities, share posts, and interact with others in a sleek, cutting-edge interface.
 
 
 ## 🛠️ Tech Stack

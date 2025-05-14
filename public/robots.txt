@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location #ak
-Sitemap: https://chitchan.com/api/sitemap.xml
+Sitemap: https://bluix.com/api/sitemap.xml
 
 # Disallow admin and private routes
 Disallow: /admin/

@@ -7,7 +7,7 @@ import {
   DirectoryMenuItem,
   directoryMenuState,
 } from "../atoms/directoryMenuAtom";
-import { ChitchanLogo } from "../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../components/Icons/IconAdapters";
 
 const useDirectory = () => {
   const [directoryState, setDirectoryState] =
@@ -46,11 +46,10 @@ const useDirectory = () => {
     if (existingCommunity.id) {
       setDirectoryState((prev) => ({
         ...prev,
-        selectedMenuItem: {
-          displayText: `c/${existingCommunity.id}`,
+        selectedMenuItem: {          displayText: `c/${existingCommunity.id}`,
           link: `c/${existingCommunity.id}`,
-          icon: ChitchanLogo,
-          iconColor: "blue.500",
+          icon: BluixLogoIcon,
+          iconColor: "brand.500",
           imageURL: existingCommunity.imageURL,
         },
       }));

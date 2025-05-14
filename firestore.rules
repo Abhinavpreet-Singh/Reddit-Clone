@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow authenticated users to read any document
+    match /{document=**} {
+      allow read: if request.auth != null;
+    }
+    
+    // Users collection rules
+    match /users/{userId} {
+      allow read;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Communities collection rules
+    match /communities/{communityId} {
+      allow read;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null && 
+        ((request.resource.data.creatorId == request.auth.uid) || 
+         (exists(/databases/$(database)/documents/communities/$(communityId)/moderators/$(request.auth.uid))));
+      allow delete: if request.auth != null && request.resource.data.creatorId == request.auth.uid;
+      
+      // Nested collections in communities
+      match /moderators/{userId} {
+        allow read;
+        allow write: if request.auth != null && 
+          (request.auth.uid == resource.data.creatorId || request.auth.uid == userId);
+      }
+    }
+    
+    // Posts collection rules
+    match /posts/{postId} {
+      allow read;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && 
+        (request.auth.uid == resource.data.creatorId ||
+         exists(/databases/$(database)/documents/communities/$(resource.data.communityId)/moderators/$(request.auth.uid)));
+      
+      // Comments subcollection rules
+      match /comments/{commentId} {
+        allow read;
+        allow create: if request.auth != null;
+        allow update, delete: if request.auth != null && request.auth.uid == resource.data.creatorId;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Flex, Icon, Stack, Text, useColorMode, Spinner } from "@chakra-ui/react";
-import { ChitchanLogoColored } from "../../components/Icons/ChitchanLogoColored";
+import { BluixLogoColored } from "../../components/Icons/BluixLogoColored";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/clientApp";
 import CreateCommunityModal from "../Modal/CreateCommunity";
@@ -47,17 +47,23 @@ const PersonalHome: React.FC = () => {
           bgImage="url(/images/redditPersonalHome.png)"
           backgroundSize="cover"
         />
-        <Flex direction="column" p="12px">
-          <Flex align="center" mb={2}>
-            <Icon as={ChitchanLogoColored} fontSize={50} mr={2} />
-            <Text fontWeight={600}>Home</Text>
+        <Flex direction="column" p="12px">          <Flex align="center" mb={2}>
+            <BluixLogoColored boxSize={12} mr={2} showText={false} />
+            <Text 
+              fontWeight={700} 
+              bgGradient="linear(to-r, #2C74B3, #9747FF)" 
+              bgClip="text"
+              fontSize="lg"
+            >
+              Home
+            </Text>
           </Flex>
           <Stack spacing={3}>
             <Text fontSize="9pt">
-              Your personal Chitchan frontpage, built for you.
+              Your personal BluiX frontpage, built for you.
             </Text>
-            <Button height="30px">Create Post</Button>
-            <Button variant="outline" height="30px" onClick={handleCreateCommunityClick} isLoading={loading}>
+            <Button height="34px">Create Post</Button>
+            <Button variant="outline" height="34px" onClick={handleCreateCommunityClick} isLoading={loading}>
               Create Community
             </Button>
           </Stack>

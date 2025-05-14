@@ -22,7 +22,7 @@ import {
 } from "react-icons/io5";
 import { Post } from "../../../atoms/postsAtom";
 import Link from "next/link";
-import { ChitchanLogo } from "../../../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../../../components/Icons/IconAdapters";
 
 export type PostItemContentProps = {
   post: Post;
@@ -137,7 +137,7 @@ const PostItem: React.FC<PostItemContentProps> = ({
                       mr={2}
                     />
                   ) : (
-                    <Icon as={ChitchanLogo} fontSize={18} mr={1} color="blue.500" />
+                    <Icon as={BluixLogoIcon} fontSize={18} mr={1} color="brand.500" />
                   )}
                   <Link href={`/c/${post.communityId}`}>
                     <Text

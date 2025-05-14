@@ -38,5 +38,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# Firebase credentials
+*-firebase-adminsdk-*.json
+bluix-605e8-firebase-adminsdk-fbsvc-60354d940e.json
+
 yarn.lock
 

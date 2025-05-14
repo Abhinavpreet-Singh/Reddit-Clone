@@ -22,7 +22,7 @@ import { auth, firestore, storage } from "../../firebase/clientApp";
 import { Community, communityState } from "../../atoms/communitiesAtom";
 import moment from "moment";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { ChitchanLogo } from "../../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../../components/Icons/IconAdapters";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
 
@@ -194,11 +194,10 @@ const About: React.FC<AboutProps> = ({
                           src={selectedFile || communityData?.imageURL}
                           alt="Dan Abramov"
                         />
-                      ) : (
-                        <Icon
-                          as={ChitchanLogo}
+                      ) : (                        <Icon
+                          as={BluixLogoIcon}
                           fontSize={40}
-                          color="brand.100"
+                          color="brand.500"
                           mr={2}
                         />
                       )}

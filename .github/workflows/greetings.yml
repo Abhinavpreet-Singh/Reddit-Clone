@@ -13,4 +13,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: "I committed a whole repository to her, but I couldn't evwn start a branch for us."
-        pr-message: "Thank you for your valuable contribution to ChitChan!"
+        pr-message: "Thank you for your valuable contribution to BluiX!"

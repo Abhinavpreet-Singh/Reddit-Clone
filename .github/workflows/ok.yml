@@ -19,12 +19,12 @@ jobs:
               repo: context.repo.repo,
               body: `Dear @${pr.user.login},
 
-Thank you for your contribution to the ChitChan repository!
+Thank you for your contribution to the BluiX repository!
 
 Your pull request has been received and will be reviewed shortly.
 
 Please ensure it follows the project's guidelines as outlined in the CONTRIBUTING.md file.
 
 Best regards,  
-The ChitChan Team`
+The BluiX Team`
             });

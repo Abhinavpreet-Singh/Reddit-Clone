@@ -13,7 +13,7 @@ import RightContent from "./RightContent";
 import SearchInput from "./SearchInput";
 import router from "next/router";
 import useDirectory from "../../hooks/useDirectory";
-import { ChitchanLogoColored } from "../../components/Icons/ChitchanLogoColored";
+import { BluixLogoColored } from "../../components/Icons/BluixLogoColored";
 
 const Navbar: React.FC = () => {
   const [user] = useAuthState(auth);
@@ -35,16 +35,16 @@ const Navbar: React.FC = () => {
         mr={{ base: 0, md: 2 }}
         cursor="pointer"
         onClick={() => onSelectMenuItem(defaultMenuItem)}
-      >
-        <ChitchanLogoColored boxSize="32px" />
+      >        <BluixLogoColored boxSize="32px" showText={false} />
         <Text
           display={{ base: "none", md: "unset" }}
           fontSize="18px"
-          fontWeight={600}
-          color={colorMode === "dark" ? "dark.100" : "gray.800"}
+          fontWeight={700}
+          bgGradient="linear(to-r, brand.500, accent.500)"
+          bgClip="text"
           ml={2}
         >
-          chitchan
+          BluiX
         </Text>
       </Flex>
       {user && <Directory />}

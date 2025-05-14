@@ -2,33 +2,46 @@ import type { ComponentStyleConfig } from "@chakra-ui/theme";
 
 export const Button: ComponentStyleConfig = {
   baseStyle: {
-    borderRadius: "60px",
+    borderRadius: "md",
     fontSize: "10pt",
-    fontWeight: 700,
+    fontWeight: 600,
     _focus: {
-      boxShadow: "none",
+      boxShadow: "0 0 0 2px rgba(9, 103, 210, 0.4)",
     },
+    transition: "all 0.2s ease",
+    letterSpacing: "0.015em",
   },
   sizes: {
     sm: {
-      fontSize: "8pt",
+      fontSize: "9pt",
+      px: 3,
+      py: 1,
     },
     md: {
       fontSize: "10pt",
+      px: 4,
+      py: 2,
     },
-  },
-  variants: {
+    lg: {
+      fontSize: "11pt",
+      px: 6,
+      py: 3,
+    },
+  },  variants: {
     solid: {
       color: "white",
-      bg: "brand.100",
+      bg: "brand.500",
+      boxShadow: "0 0 10px rgba(45, 116, 179, 0.4)",
       _hover: {
-        bg: "brand.200",
+        bg: "brand.600",
+        transform: "translateY(-2px)",
+        boxShadow: "0 0 15px rgba(45, 116, 179, 0.6)",
       },
       _dark: {
-        bg: "dark.200",
-        color: "dark.100",
+        bg: "brand.400",
+        color: "white",
         _hover: {
-          bg: "dark.400",
+          bg: "brand.400",
         },
       },
     },

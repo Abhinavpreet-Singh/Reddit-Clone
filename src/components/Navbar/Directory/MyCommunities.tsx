@@ -3,7 +3,7 @@ import { MenuItem, Flex, Icon, Text, Box } from "@chakra-ui/react";
 import { GrAdd } from "react-icons/gr";
 import MenuListItem from "./MenuListItem";
 import { CommunitySnippet } from "../../../atoms/communitiesAtom";
-import { ChitchanLogo } from "../../../components/Icons/ChitchanLogo";
+import { BluixLogoIcon } from "../../../components/Icons/IconAdapters";
 
 type MyCommunitiesProps = {
   snippets: CommunitySnippet[];
@@ -32,8 +32,8 @@ const MyCommunities: React.FC<MyCommunitiesProps> = ({ snippets, setOpen }) => {
           key={snippet.communityId}
           displayText={`c/${snippet.communityId}`}
           link={`c/${snippet.communityId}`}
-          icon={ChitchanLogo}
-          iconColor="blue.500"
+          icon={BluixLogoIcon}
+          iconColor="brand.500"
         />
       ))}
     </Box>

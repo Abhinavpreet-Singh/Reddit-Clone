@@ -3,7 +3,7 @@ import { Box, Button, Flex, Icon, Text, Image, useColorMode } from "@chakra-ui/r
 import { Community, communityState } from "../../atoms/communitiesAtom";
 import useCommunityData from "../../hooks/useCommunityData";
 import { useSetRecoilState } from "recoil";
-import { ChitchanLogoColored } from "../../components/Icons/ChitchanLogoColored";
+import { BluixLogoColored } from "../../components/Icons/BluixLogoColored";
 
 type HeaderProps = {
   communityData: Community;
@@ -18,31 +18,33 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
   );
   const { colorMode } = useColorMode();
 
-  return (
-    <Flex direction="column" width="100%" height="146px">
-      <Box height="50%" bg={colorMode === "dark" ? "dark.400" : "brand.100"} />
-      <Flex justifyContent="center" bg={colorMode === "dark" ? "dark.card" : "white"} height="50%">
-        <Flex width="95%" maxWidth="860px">
+  return (    <Flex direction="column" width="100%" height="160px">
+      <Box height="50%" bg={colorMode === "dark" ? "dark.400" : "brand.500"} />
+      <Flex justifyContent="center" bg={colorMode === "dark" ? "dark.card" : "white"} height="50%"
+        boxShadow={colorMode === "dark" ? "none" : "sm"}>
+        <Flex width="95%" maxWidth="1100px">
           {/* IMAGE URL IS ADDED AT THE VERY END BEFORE DUMMY DATA-USE ICON AT FIRST */}
           {communityStateValue.currentCommunity.imageURL ? (
             <Image
               borderRadius="full"
-              boxSize="66px"
+              boxSize="76px"
               src={communityStateValue.currentCommunity.imageURL}
-              alt="Dan Abramov"
+              alt="Community Image"
               position="relative"
-              top={-3}
-              color="blue.500"
-              border="4px solid white"
+              top={-4}
+              boxShadow="lg"
+              border={`4px solid ${colorMode === "dark" ? "#252D3C" : "white"}`}
             />
           ) : (
-            <Icon
-              as={ChitchanLogoColored}
-              fontSize={64}
+            <BluixLogoColored
+              boxSize="76px"
               position="relative"
-              top={-3}
-              border="4px solid white"
-              borderRadius="50%"
+              top={-4}
+              border={`4px solid ${colorMode === "dark" ? "#252D3C" : "white"}`}
+              borderRadius="full" 
+              bg={colorMode === "dark" ? "dark.500" : "white"}
+              showText={false}
+              p={2}
             />
           )}
           <Flex padding="10px 16px">
